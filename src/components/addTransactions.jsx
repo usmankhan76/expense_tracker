@@ -20,18 +20,22 @@ const useStyling=makeStyles((theme)=>({
     btn:{
         backgroundColor:'green',
         marginTop:"10px",
+        marginBottom:'10px',
+        width:'100%',
+        color:'white',
+        height:'50px'
        
     }
 }))
 export default function AddTransactions() {
     const classes=useStyling();
     const[text,setText]=useState('')
-    const[amount,setAmount]=useState()
+    const[amount,setAmount]=useState('')
     const{addtransaction}=useContext(GlobalContext)
  const handleSubmit=(e)=>{
          e.preventDefault();
          const newTransaction={
-             id:Math.floor(Math.random()*12000).Math.random(),
+             id:Math.floor(Math.random()*12000),
              text,
              amount:+amount
          }
@@ -65,9 +69,9 @@ export default function AddTransactions() {
         autoFocus={true}
         placeholder="Enter ampunt"
         value={amount}
-        onChange={(e)=>{setAmount(e.target.value)}}
+        onChange={(e)=>parseInt( setAmount(e.target.value))}
         > </Input> 
-        <Button  fullWidth vairant="contained" className={classes.btn} >Add Transaction</Button>
+        <button   className={classes.btn} >Add Transaction</button>
         </form> 
         </Grid>
     )

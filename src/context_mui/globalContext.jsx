@@ -3,15 +3,15 @@ import Reducer from "./reducer"
 
 const initialState={
     transactions:[
-        {id:Math.floor(Math.random()*12),
-        text:"Flower",
-        amount:40 },
-        {id:Math.floor(Math.random()*12),
-        text:"Bee",
-        amount:50 },
-        {id:Math.floor(Math.random()*12),
-        text:"Honey",
-        amount:-40 },
+        // {id:Math.floor(Math.random()*12),
+        // text:"Flower",
+        // amount:40 },
+        // {id:Math.floor(Math.random()*12),
+        // text:"Bee",
+        // amount:50 },
+        // {id:Math.floor(Math.random()*12),
+        // text:"Honey",
+        // amount:-40 },
     ]
 }
 export const GlobalContext=createContext(initialState)  

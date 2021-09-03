@@ -18,7 +18,7 @@ export default function Header() {
     return (
         <Grid    className={classes.parent}>
             <Typography variant="h5" className={classes.typo}>
-                Expense Tracker</Typography>
+                Expense Tracker By Usman Khan</Typography>
         </Grid>
     )
 }
