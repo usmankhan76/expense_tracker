@@ -9,7 +9,7 @@ export default function Transactionlist() {
             <h3>History</h3>
       <ul className="list">
           {takeData.transactions.map((transaction)=>{
-           return <Transaction {...transaction}/>    
+           return <Transaction key={transaction.id} {...transaction}/>    
           })}
        
       </ul>

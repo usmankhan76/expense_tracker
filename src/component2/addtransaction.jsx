@@ -23,7 +23,9 @@ export default function Addtransaction() {
       <form onSubmit={HandleNewTransaction} >
         <div className="htmlForm-control">
           <label htmlFor="text">Text</label>
-          <input type="text" required="true"  placeholder="Enter text..." 
+          <input type="text" 
+          required="true"  
+          placeholder="Enter text..." 
           value={text}
           onChange={(e)=>{setText(e.target.value)}} />
         </div>
@@ -32,7 +34,10 @@ export default function Addtransaction() {
             >Amount <br />
             (negative - expense, positive - income)</label
           >
-          <input type="number" required="true"   placeholder="Enter amount..." 
+          <input 
+          type="number" 
+          required="true"   
+          placeholder="Enter amount..." 
           value={amount}
            onChange={(e)=>{setAmount(e.target.value)}}/>
         </div>

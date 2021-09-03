@@ -1,5 +1,6 @@
-import { Card, CardMedia, Divider, Grid, makeStyles, Typography } from '@material-ui/core'
-import React from 'react'
+import { AccordionSummary, Card, CardContent, CardMedia, Divider, Grid, makeStyles, Typography } from '@material-ui/core'
+import React,{useContext} from 'react'
+import { GlobalContext } from '../context_mui/globalContext';
 const useStyling=makeStyles(()=>({
     parent:{
         textAlign:'center',
@@ -8,9 +9,11 @@ const useStyling=makeStyles(()=>({
         
     },
     typo:{
-    padding:'30px',
+    padding:'auto',
     display:'flex',
-    flexDirection:'column'
+    flexDirection:'column',
+    
+
     },
     cardMedia:{
         display:'flex',
@@ -18,30 +21,51 @@ const useStyling=makeStyles(()=>({
         justifyContent:'space-around',
         
     },
-    
+    card:{
+        elevation:"5"
+    },
+    green:{
+        color:"green"
+    },
+    red:{color:'red'}
+
 }))
 export default function Incomeexpenses() {
     const classes=useStyling();
-
+     const {transactions}=useContext(GlobalContext);
+     const sum=transactions.map((single)=>single.amount)
+     .filter((item)=>item>0)
+     .reduce((accumolator,currentValue)=>accumolator+=currentValue,0)
+     .toFixed(2);
+     const expense=transactions.map(item=>item.amount)
+     .filter(item=>item<0)
+     .reduce((accumolator,currentValue)=>accumolator-=currentValue,0)
+     .toFixed(2)
     return (
           
           <Grid item lg={12} sm={12} xs={12} md={12}>
-          <Card className={classes.card} elevation='5' > 
+          <Card className={classes.card} elevation={5}  > 
         {/* <Grid container className={classes.parent}> */}
-              <CardMedia className={classes.cardMedia}> 
+              <CardContent className={classes.cardMedia}> 
                   {/* <Grid item lg={6} sm={6} xs={6}> */}
-                 <Typography variant="h6" className={classes.typo}>
-                <span>INCOME</span> <span>0.0</span> 
+                 <Typography 
+                 variant="body1" 
+                 className={classes.typo}>
+                <span className={classes.green}>INCOME</span>
+                 <span className={classes.green}>{sum}</span> 
                 </Typography>
                 <Divider />
             {/* </Grid> */}
             {/* <Grid item lg={6} sm={6} xs={6}> */}
-                <Typography variant="h6" className={classes.typo}>
-                  <span>EXPENSE</span> <span>0.0</span> 
+                <Typography 
+                variant="body1"
+                 className={classes.typo}>
+                  <span className={classes.red}>EXPENSE</span> 
+                  <span className={classes.red}>${expense}</span> 
 
                 </Typography>
             {/* </Grid> */}
-            </CardMedia>
+            </CardContent>
         {/* </Grid> */}
             </Card>
             </Grid>
