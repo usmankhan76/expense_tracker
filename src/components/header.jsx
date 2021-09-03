@@ -7,6 +7,7 @@ const useStyling=makeStyles(()=>({
         // border:"solid 1px"
     },
     typo:{
+        marginTop:'10px',
       fontWeight:'bold',
     //   fontFamily:'serif'  
     letterSpacing:'0.5px'
@@ -16,7 +17,7 @@ export default function Header() {
     const classes=useStyling();
     return (
         <Grid    className={classes.parent}>
-            <Typography variant="h4" className={classes.typo}>
+            <Typography variant="h5" className={classes.typo}>
                 Expense Tracker</Typography>
         </Grid>
     )
